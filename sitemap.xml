@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://lk-vending.netlify.app/</loc><lastmod>2026-09-18</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://lk-vending.netlify.app/chill</loc><lastmod>2026-09-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://lk-vending.netlify.app/frozen</loc><lastmod>2026-09-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://lk-vending.netlify.app/blog</loc><lastmod>2026-09-18</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://lk-vending.netlify.app/post/2026-09-05-%EC%95%84%ED%8C%8C%ED%8A%B8-%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0-%EC%84%A4%EC%B9%98-%EC%82%AC%EB%A1%80</loc><lastmod>2026-09-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://lk-vending.netlify.app/post/2026-08-28-%EB%83%89%EB%8F%99%EA%B3%BC-%EB%83%89%EC%9E%A5-%EB%AC%B4%EC%97%87%EC%9D%84-%EA%B3%A0%EB%A5%BC%EA%B9%8C</loc><lastmod>2026-08-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://lk-vending.netlify.app/post/2026-08-12-%EB%AC%B4%EC%9D%B8%EC%9E%90%ED%8C%90%EA%B8%B0-%EC%84%A4%EC%B9%98-%EC%A0%84-%ED%99%95%EC%9D%B8%ED%95%A0-%EA%B2%83</loc><lastmod>2026-08-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>

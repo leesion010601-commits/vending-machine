@@ -1,0 +1,22 @@
+# Netlify 설정 — 빌드 과정 없이 index.html 을 그대로 서비스합니다.
+
+[build]
+  publish = "."
+
+# /chill, /frozen, /blog, /post/글주소 처럼 깔끔한 주소로 들어와도
+# index.html 이 응답하도록 합니다. (실제 파일이 있으면 그 파일이 먼저 나갑니다)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
