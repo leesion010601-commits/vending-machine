@@ -32,7 +32,7 @@
 
 주소가 정해지면 아래 세 곳의 주소를 실제 주소로 바꿔 주세요.
 
-- `index.html` 안의 `var SITE_URL = 'https://lk-vending.netlify.app';`
+- `index.html` 안의 `var SITE_URL = 'https://phenomenal-lamington-f68def.netlify.app';`
 - `robots.txt` 의 `Sitemap:` 줄
 - `sitemap.xml`, `rss.xml` 안의 주소 (관리자 모드에서 다시 내려받으면 자동으로 바뀝니다)
 

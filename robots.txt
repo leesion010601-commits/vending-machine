@@ -4,4 +4,4 @@ Allow: /
 User-agent: Yeti
 Allow: /
 
-Sitemap: https://lk-vending.netlify.app/sitemap.xml
+Sitemap: https://phenomenal-lamington-f68def.netlify.app/sitemap.xml
