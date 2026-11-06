@@ -434,6 +434,11 @@ footer .foot-fine{color:#9C8B7B;line-height:1.7}
 .sp-gu a.on:hover{background:var(--latte)}
 .sp-gu em{font-style:normal;font-size:11.5px;font-weight:700;color:#fff;background:var(--mocha);border-radius:10px;padding:1px 7px}
 .sp-note{font-size:14.5px;color:var(--mocha);margin-top:12px}
+.sp-lead{font-size:16.5px;line-height:1.85;color:var(--ink);margin-top:12px;max-width:820px}
+.sp-card{display:flex;flex-direction:column}
+.sp-card p.sp-extra{margin-top:auto;padding-top:14px;border-top:1px dashed #E6DACC;font-size:14px;line-height:1.6;color:var(--espresso)}
+.sp-card p.sp-extra em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--mocha);margin-bottom:3px}
+.sp-card p:not(.sp-extra){margin-bottom:16px}
 .sp-steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .sp-steps li{background:var(--oat);border-radius:16px;padding:22px}
 .sp-steps span{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--espresso);color:#fff;font-size:14px;font-weight:700}
@@ -2543,30 +2548,37 @@ function regionCases(){
 /* 서울 전용 페이지 — 섹션 순서: 설치 안내 · 설치 장소 · 설치 포인트 · 자치구별 보기 · 설치 절차 · FAQ
    자치구 이름으로 시작하는 글(예: '강남구 자판기 밴딩머신')이 있으면 그 구 버튼이 글로 연결됩니다. */
 var SEOUL_PAGE = {
-  intro:'오피스 빌딩부터 학원가, 병원, 헬스장까지. 서울 어느 구든 자리 사진 한 장이면 들어갈 수 있는 기종과 견적을 먼저 확인해 드립니다.',
+  intro:'서울은 사람이 많은 만큼 자리도 빽빽해서, 같은 기기라도 건물마다 설치 조건이 다릅니다. 오피스 빌딩부터 학원가, 병원, 헬스장까지 자리 사진 한 장만 보내 주시면 들어갈 수 있는 기종과 견적을 먼저 확인해 드립니다.',
+  leads:{
+    places:'서울은 같은 구 안에서도 건물마다 오가는 사람이 다릅니다. 누가, 언제, 얼마나 머무는 자리인지에 따라 냉장과 냉동, 채울 상품이 달라집니다. 서울에서 문의가 많은 공간을 유형별로 정리했습니다.',
+    tips:'서울 설치는 기기보다 건물이 먼저입니다. 자리 크기, 반입 경로, 건물 규정 중 하나라도 맞지 않으면 설치 당일 기기가 들어가지 못할 수 있습니다. 상담 전에 아래 네 가지를 확인해 두시면 일정이 빨라집니다.',
+    districts:'서울 25개 자치구 어디든 설치합니다. 구마다 상권 성격이 달라, 구별 안내 글에서 그 지역에 맞는 자리와 구성을 따로 정리하고 있습니다.',
+    steps:'처음 문의부터 운영 시작까지 이런 순서로 진행됩니다. 기종이 정해지면 설치까지 보통 1~2주가 걸리며, 현장 상황과 재고에 따라 상담할 때 일정을 함께 확인합니다.',
+    faq:'서울에서 설치 상담을 하며 자주 받는 질문을 모았습니다. 여기 없는 내용은 전화로 편하게 물어봐 주세요.'
+  },
   places:[
-    ['오피스·지식산업센터','점심과 오후에 직장인이 몰립니다. 냉장 자판기에 커피·생수·간편식을 채우고, 겨울엔 온장으로 캔커피를 팝니다.'],
-    ['학원가','수업 사이 쉬는 시간에 학생들이 한꺼번에 찾습니다. 음료·간식 위주로 두고 냉동 쇼케이스로 아이스크림을 더합니다.'],
-    ['병원','환자와 보호자가 하루 종일 고르게 드나듭니다. 냉장 음료와 간편식을 24시간 판매합니다.'],
-    ['헬스장','운동 전후에 찾는 생수·이온음료·단백질 음료를 냉장으로 채웁니다. 카운터에 사람이 없어도 판매가 이어집니다.'],
-    ['오피스텔·아파트 커뮤니티','늦은 밤까지 입주민이 드나듭니다. 냉장 음료와 생활용품, 아이스크림은 냉동 쇼케이스를 나란히 둡니다.'],
-    ['관광지·숙박시설','외국인 손님이 많은 곳은 화면을 한국어·영어·중국어·일본어로 바꿔 음료와 어메니티를 판매합니다.']
+    ['오피스·지식산업센터','점심 직후와 오후 휴식 시간에 구매가 몰립니다. 탕비실이나 엘리베이터 홀 옆처럼 직원들이 자주 지나는 자리가 좋고, 사내 공지를 화면에 띄우면 안내판 역할까지 합니다.','냉장 자판기 · 커피·생수·간편식, 겨울엔 온장 캔커피'],
+    ['학원가','수업 사이 쉬는 시간에 학생들이 한꺼번에 찾습니다. 고르는 시간이 짧아야 하니 인기 상품을 찾기 쉽게 배치하고, 학생 이용이 많은 만큼 가격대를 맞춰 구성합니다.','냉장 음료·간식 + 냉동 쇼케이스 아이스크림'],
+    ['병원','환자와 보호자, 야간 근무 직원까지 하루 종일 고르게 찾습니다. 매점이 문을 닫는 밤과 주말에도 판매가 이어지는 것이 가장 큰 장점입니다.','냉장 음료·간편식 · 24시간 운영'],
+    ['헬스장','운동 전후에 생수와 이온음료를 찾는 손님이 많습니다. 무인 헬스장처럼 카운터에 사람이 없는 곳에서도 카드 결제만으로 판매가 이어집니다.','냉장 자판기 · 생수·이온음료·단백질 음료'],
+    ['오피스텔·아파트 커뮤니티','편의점까지 나가기 번거로운 늦은 밤에 입주민이 찾습니다. 커뮤니티 라운지나 로비에 두면 입주민 편의 시설이 되고, 관리사무소 공지도 화면에 띄울 수 있습니다.','냉장 음료·생활용품 + 냉동 쇼케이스'],
+    ['관광지·숙박시설','외국인 손님이 혼자서도 살 수 있도록 화면 언어를 한국어·영어·중국어·일본어로 바꿀 수 있습니다. 카드와 모바일 간편결제라 현금이 없어도 됩니다.','냉장 자판기 · 음료·기념품·어메니티']
   ],
   tips:[
-    ['반입 시간','오피스텔·상가·지식산업센터는 관리사무소가 반입 시간대를 정해 둔 곳이 많습니다. 설치 위치, 전기 사용과 함께 미리 물어 두면 설치 당일이 수월합니다.'],
-    ['엘리베이터 규격','기기 높이가 1,970~2,057mm입니다. 냉장 기기는 포장 크기가 1,000 × 2,000 × 960mm라, 엘리베이터 문 높이와 안쪽 깊이를 포장 크기 기준으로 확인합니다.'],
-    ['계단 반입','엘리베이터가 없거나 작다면 계단 폭과 꺾이는 곳이 관건입니다. 계단 사진과 폭을 보내 주시면 반입 가능 여부를 먼저 확인해 드립니다.'],
-    ['바닥 면적과 전기','냉장 자판기는 가로 955 × 깊이 920mm, 냉동 쇼케이스는 가로 670 × 깊이 750mm입니다. 손님이 설 자리를 더해 잡고, 220V 단독 콘센트를 준비합니다.']
+    ['반입 시간','오피스텔·상가·지식산업센터는 관리사무소가 반입 시간대를 정해 둔 곳이 많습니다. 설치 위치, 전기 사용과 함께 미리 물어 두면 설치 당일이 수월합니다.','반입 가능한 요일·시간, 화물용 엘리베이터 사용 여부'],
+    ['엘리베이터 규격','기기 높이가 1,970~2,057mm입니다. 냉장 기기는 포장 크기가 1,000 × 2,000 × 960mm라, 엘리베이터는 본체가 아니라 포장 크기를 기준으로 봅니다.','엘리베이터 문 높이·폭, 안쪽 깊이'],
+    ['계단 반입','엘리베이터가 없거나 작다면 계단 폭과 꺾이는 곳이 관건입니다. 계단 사진과 폭을 보내 주시면 반입 가능 여부를 먼저 확인해 드립니다.','계단 폭, 꺾이는 곳(층참) 크기, 올라갈 층수'],
+    ['바닥 면적과 전기','냉장 자판기는 가로 955 × 깊이 920mm, 냉동 쇼케이스는 가로 670 × 깊이 750mm입니다. 손님이 앞에 설 자리를 더해 잡고, 220V 단독 콘센트를 준비합니다.','설치 자리 가로·깊이, 콘센트 위치, 원격 관리용 유선 인터넷']
   ],
   districts:['강남구','강동구','강북구','강서구','관악구','광진구','구로구','금천구','노원구','도봉구','동대문구','동작구','마포구',
     '서대문구','서초구','성동구','성북구','송파구','양천구','영등포구','용산구','은평구','종로구','중구','중랑구'],
   steps:[
-    ['상담 신청','설치할 자리와 팔고 싶은 상품을 전화로 알려 주세요.'],
-    ['설치 환경 확인','자리 사진과 출입문·엘리베이터 폭으로 들어갈 기종을 확인합니다.'],
-    ['계약','구매·렌탈·위탁 운영 중 공간에 맞는 방식으로 계약합니다.'],
-    ['상품 선정','오가는 손님에 맞춰 칸 구성과 판매 상품을 정합니다.'],
-    ['출고·설치','기종이 정해지면 보통 1~2주 안에 설치합니다.'],
-    ['운영 시작','재고 알림과 매출 조회로 매장에 가지 않고 관리합니다.']
+    ['상담 신청','설치할 자리와 팔고 싶은 상품을 전화로 알려 주세요. 아직 정해진 게 없어도 괜찮습니다.'],
+    ['설치 환경 확인','자리 사진과 출입문·엘리베이터 폭, 콘센트 위치를 보고 들어갈 수 있는 기종을 고릅니다.'],
+    ['계약','구매·렌탈·위탁 운영 견적을 나란히 비교한 뒤 공간에 맞는 방식으로 계약합니다.'],
+    ['상품 선정','오가는 손님과 계절에 맞춰 칸 구성과 판매 상품, 화면에 띄울 내용을 정합니다.'],
+    ['출고·설치','건물의 반입 시간에 맞춰 기기를 들여와 설치합니다. 기종이 정해지면 보통 1~2주 안에 설치합니다.'],
+    ['운영 시작','재고 알림과 매출 조회로 매장에 가지 않고 관리합니다. 운영 중에도 점검과 A/S를 지원합니다.']
   ],
   faq:[
     ['결제가 안 되거나 오류가 나면 어떻게 하나요?','결제는 카드와 모바일 간편결제로 받습니다. 기기 상태는 관리 프로그램에서 원격으로 확인할 수 있어 현장에 가기 전에 원인을 먼저 살펴보고, 설치 후 점검과 A/S도 지원합니다. 문제가 생기면 바로 연락 주세요.'],
@@ -2578,24 +2590,27 @@ var SEOUL_PAGE = {
 function seoulPage(area,cases){
   var S=SEOUL_PAGE, hero=cases[0];
   function linkOf(d){var u='';POSTS.forEach(function(p){if(!u&&p.title.indexOf(d)===0)u='#/post/'+encodeURIComponent(p.slug);});return u;}
-  function head(no,chip,title){return '<div class="sp-head"><span class="sp-no">'+no+'</span><span class="sp-chip">'+chip+'</span><h2>'+title+'</h2></div>';}
+  function head(no,chip,title,lead){return '<div class="sp-head"><span class="sp-no">'+no+'</span><span class="sp-chip">'+chip+'</span><h2>'+title+'</h2>'
+    +(lead?'<p class="sp-lead">'+esc(lead)+'</p>':'')+'</div>';}
   return '<section class="rg-detail sp">'
     +'<a class="rg-back" href="#/region">← 전체 지역 보기</a>'
     +'<div class="sp-hero"><div class="sp-hero-tx"><span class="sp-no">01</span><h2>서울 설치 안내</h2><p>'+esc(S.intro)+'</p>'
     +'<div class="sp-btns"><a class="btn btn-dark" href="tel:01032061175">상담 신청</a><a class="btn btn-line" href="#/#s07-plans">도입 비용 보기</a></div></div>'
     +(hero?'<figure class="sp-hero-ph"><img src="'+esc(hero.src)+'" alt="'+esc(hero.alt)+'" loading="lazy"><figcaption>서울 · '+esc(hero.name)+'</figcaption></figure>':'')
     +'</div>'
-    +'<div class="sp-sec">'+head('02','이런 곳에 둡니다','설치 장소')+'<div class="sp-cards">'
-    +S.places.map(function(x){return '<div class="sp-card"><b>'+esc(x[0])+'</b><p>'+esc(x[1])+'</p></div>';}).join('')+'</div></div>'
-    +'<div class="sp-sec">'+head('03','서울 설치 팁','설치 포인트')+'<div class="sp-cards sp-2">'
-    +S.tips.map(function(x,i){return '<div class="sp-card"><b><i>'+(i+1)+'</i>'+esc(x[0])+'</b><p>'+esc(x[1])+'</p></div>';}).join('')+'</div></div>'
-    +'<div class="sp-sec">'+head('04','구별 안내','자치구별 보기')+'<div class="sp-gu">'
+    +'<div class="sp-sec">'+head('02','이런 곳에 둡니다','설치 장소',S.leads.places)+'<div class="sp-cards">'
+    +S.places.map(function(x){return '<div class="sp-card"><b>'+esc(x[0])+'</b><p>'+esc(x[1])+'</p>'
+      +'<p class="sp-extra"><em>추천 구성</em>'+esc(x[2])+'</p></div>';}).join('')+'</div></div>'
+    +'<div class="sp-sec">'+head('03','서울 설치 팁','설치 포인트',S.leads.tips)+'<div class="sp-cards sp-2">'
+    +S.tips.map(function(x,i){return '<div class="sp-card"><b><i>'+(i+1)+'</i>'+esc(x[0])+'</b><p>'+esc(x[1])+'</p>'
+      +'<p class="sp-extra"><em>미리 확인할 것</em>'+esc(x[2])+'</p></div>';}).join('')+'</div></div>'
+    +'<div class="sp-sec">'+head('04','구별 안내','자치구별 보기',S.leads.districts)+'<div class="sp-gu">'
     +S.districts.map(function(d){var u=linkOf(d);
       return u?'<a class="on" href="'+u+'">'+esc(d)+'<em>안내 글</em></a>':'<span>'+esc(d)+'</span>';}).join('')+'</div>'
-    +'<p class="sp-note">서울 25개 자치구 모두 설치합니다. 구 이름에 안내 글이 표시된 곳은 눌러서 바로 읽을 수 있습니다.</p></div>'
-    +'<div class="sp-sec">'+head('05','진행 순서','설치 절차')+'<ol class="sp-steps">'
+    +'<p class="sp-note">‘안내 글’ 표시가 있는 구는 눌러서 바로 읽을 수 있습니다.</p></div>'
+    +'<div class="sp-sec">'+head('05','진행 순서','설치 절차',S.leads.steps)+'<ol class="sp-steps">'
     +S.steps.map(function(x,i){return '<li><span>'+(i+1)+'</span><b>'+esc(x[0])+'</b><p>'+esc(x[1])+'</p></li>';}).join('')+'</ol></div>'
-    +'<div class="sp-sec">'+head('06','궁금한 점','FAQ')+'<div class="sp-faq">'
+    +'<div class="sp-sec">'+head('06','궁금한 점','FAQ',S.leads.faq)+'<div class="sp-faq">'
     +S.faq.map(function(x){return '<details><summary>'+esc(x[0])+'</summary><p>'+esc(x[1])+'</p></details>';}).join('')+'</div></div>'
     +'<div class="rg-other"><h3 class="rg-sub">다른 지역 보기</h3><div class="rg-cities">'
     +AREAS.filter(function(r){return r!==area;}).map(function(r){
