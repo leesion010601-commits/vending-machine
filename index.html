@@ -384,6 +384,9 @@ footer .foot-fine{color:#9C8B7B;line-height:1.7}
   font-size:15px;font-weight:600;color:var(--espresso)}
 .rg-city i{font-style:normal;font-size:13px;font-weight:600;color:var(--mocha)}
 .rg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 20px;margin-top:30px}
+.rg-top{width:1080px;max-width:100%;margin:0 auto 44px;padding:0 28px}
+.rg-top:empty{display:none}
+.rg-top .rg-posts{margin-top:0}
 .rg-posts{margin-top:28px}
 .rg-posts h3{font-size:18px;color:var(--espresso);margin-bottom:12px}
 .rg-post-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
@@ -2114,6 +2117,7 @@ nav .tel span{white-space:nowrap}
     <h1>지역별 판매</h1>
     <p>서울부터 정읍까지, 11개 도시에서 실제로 운영 중인 현장을 지역별로 모았습니다. 가까운 곳의 설치 사례를 먼저 확인해 보세요.</p>
   </div>
+  <div class="rg-top" id="rgTop"></div>
   <div class="rg-tabs" id="rgTabs" role="tablist" aria-label="지역 선택"></div>
   <div class="rg-list" id="rgList"></div>
   <div class="rg-cta">
@@ -2430,9 +2434,9 @@ var REGIONS = [
 ];
 var rgSel='';
 function regionPosts(k){
-  var ps=POSTS.filter(function(p){return p.region===k;});
+  var ps=POSTS.filter(function(p){return k?p.region===k:!!p.region;});
   if(!ps.length)return '';
-  return '<div class="rg-posts"><h3>'+esc(k)+' 지역 안내 글</h3><div class="rg-post-list">'+ps.map(function(p){
+  return '<div class="rg-posts"><h3>'+esc(k||'지역별')+' 안내 글</h3><div class="rg-post-list">'+ps.map(function(p){
     return '<a class="rg-post" href="#/post/'+encodeURIComponent(p.slug)+'"><span class="rg-post-th">'+thumbTag(p)+'</span>'
       +'<span class="rg-post-tx"><b>'+esc(p.title)+'</b><em>'+esc(p.summary)+'</em></span></a>';}).join('')+'</div></div>';
 }
@@ -2448,6 +2452,7 @@ function renderRegion(sel){
   rgSel=keys.indexOf(sel)>-1?sel:'';
   var cases=regionCases();
   function inRegion(r){return cases.filter(function(c){return r.cities.indexOf(c.city)>-1;});}
+  document.getElementById('rgTop').innerHTML=regionPosts(rgSel);
   document.getElementById('rgTabs').innerHTML=
     '<button class="rg-tab'+(rgSel?'':' on')+'" role="tab" aria-selected="'+(!rgSel)+'" data-region="">전체<em>'+cases.length+'</em></button>'+
     REGIONS.map(function(r){var on=rgSel===r.key;
@@ -2462,7 +2467,6 @@ function renderRegion(sel){
         +'<div class="rg-cities">'+r.cities.map(function(ct){
           var n=list.filter(function(c){return c.city===ct;}).length;
           return '<span class="rg-city">'+esc(ct)+'<i>'+n+'곳</i></span>';}).join('')+'</div>'
-        +regionPosts(r.key)
         +'<div class="rg-grid">'+list.map(function(c){
           return '<figure class="rg-card"><div class="frame" style="background-image:url(&quot;'+esc(c.src)+'&quot;)">'
             +'<img src="'+esc(c.src)+'" alt="'+esc(c.alt)+'" loading="lazy"></div>'
@@ -2650,7 +2654,7 @@ document.getElementById('adExport').addEventListener('click',function(){
   // 런타임에 칠한 배경 이미지는 파일에 중복 저장되지 않도록 지웁니다
   [].forEach.call(clone.querySelectorAll('.cases .card .frame'),function(f){f.removeAttribute('style');});
   // 내려받은 파일은 항상 홈 화면부터 시작하도록 초기화
-  ['rgTabs','rgList'].forEach(function(id){var el=clone.querySelector('#'+id);if(el)el.innerHTML='';});
+  ['rgTop','rgTabs','rgList'].forEach(function(id){var el=clone.querySelector('#'+id);if(el)el.innerHTML='';});
   ['view-chill','view-frozen','view-region','view-blog','view-post','view-admin'].forEach(function(v){
     var el=clone.querySelector('#'+v);if(el)el.classList.remove('on');});
   [].forEach.call(clone.querySelectorAll('.dv-co-lines'),function(el){el.innerHTML='';el.removeAttribute('viewBox');});
