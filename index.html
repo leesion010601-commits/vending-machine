@@ -497,6 +497,8 @@ footer .foot-fine{color:#9C8B7B;line-height:1.7}
 .gn-track::-webkit-scrollbar{display:none}
 .gn-track figure{margin:0;scroll-snap-align:start;position:relative;border-radius:16px;overflow:hidden;background:var(--oat)}
 .gn-track img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.gn-track figure.z1 img{transform:scale(1.25);object-position:0% 40%}
+.gn-track figure.z2 img{transform:scale(1.35);object-position:100% 40%}
 .gn-track figcaption{position:absolute;left:12px;bottom:12px;font-size:13.5px;font-weight:600;color:#fff;background:rgba(51,37,28,.78);border-radius:8px;padding:5px 10px}
 .gn-arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid var(--latte);background:#fff;color:var(--espresso);font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(51,37,28,.12);z-index:2}
 .gn-arrow.prev{left:-14px}.gn-arrow.next{right:-14px}
@@ -3015,7 +3017,7 @@ function seoulPage(area,cases){
       return '<a class="rg-city" href="#/region/'+encodeURIComponent(r.key)+'">'+esc(r.key)+'</a>';}).join('')
     +'</div></div></section>';
 }
-/* 서울 자치구 전용 페이지 — 지금은 강남구만 있습니다. 주소: #/region/서울/강남구
+/* 서울 자치구 전용 페이지 — 지금은 강남구·강동구가 있습니다. 주소: #/region/서울/강남구
    GU_PAGES 에 구 이름을 키로 추가하면 서울 페이지 자치구 버튼이 자동으로 링크가 됩니다. */
 var GU_PAGES = {
   '강남구':{
@@ -3058,6 +3060,47 @@ var GU_PAGES = {
       ['결제는 어떻게 하나요?','카드와 모바일 간편결제로 받습니다. 현금이 없어도 구매할 수 있어 무인으로 운영하기 편합니다.'],
       ['설치 후 관리는 어떻게 하나요?','재고 알림과 매출 조회를 원격으로 확인할 수 있어 매장에 가지 않아도 관리됩니다. 운영 중 점검과 A/S도 지원합니다.']
     ]
+  },
+  '강동구':{
+    hero:'/img/gangdong-main.jpg',
+    lead:'천호동, 성내동, 길동, 둔촌동, 명일동, 고덕동, 상일동, 강일동, 암사동 등 서울 강동구 전 지역에 무인 자판기를 설치합니다. 오피스와 학원, 병원과 헬스장처럼 공간마다 맞는 냉장·냉동 기기를 골라 설치부터 운영 관리까지 한 번에 진행합니다.',
+    gallery:[
+      ['/img/gangdong-main.jpg','LK 무인 자판기 운영 현장'],
+      ['/img/gangdong-main.jpg','냉장 자판기 진열 구성','z1'],
+      ['/img/gangdong-main.jpg','23.8인치 터치스크린 상세','z2']
+    ],
+    keywords:[
+      ['핵심 키워드',true,['강동구 무인 자판기 설치','강동구 자판기 설치','강동구 무인자판기','강동구 자판기 렌탈','강동구 자판기 임대','서울 강동구 자판기']],
+      ['동별 설치',false,['천호동 자판기 설치','성내동 자판기 설치','길동 자판기 설치','둔촌동 자판기 설치','명일동 자판기 설치','고덕동 자판기 설치','상일동 자판기 설치','강일동 자판기 설치','암사동 자판기 설치']],
+      ['기기 종류',false,['강동구 냉장 자판기','강동구 냉동 자판기','강동구 아이스크림 자판기','강동구 음료 자판기','강동구 스낵 자판기','강동구 스마트 자판기','강동구 광고형 자판기','강동구 터치스크린 자판기','강동구 카드 결제 자판기']],
+      ['장소별 설치',false,['강동구 사무실 자판기','강동구 회사 자판기','강동구 학원 자판기','강동구 병원 자판기','강동구 헬스장 자판기','강동구 오피스텔 자판기','강동구 지식산업센터 자판기','강동구 무인매장 자판기','강동구 아파트 커뮤니티 자판기']],
+      ['운영 방식',false,['강동구 자판기 구매','강동구 자판기 렌탈','강동구 자판기 위탁 운영','강동구 무인 자판기 창업','강동구 자판기 A/S']]
+    ],
+    dongs:['천호동','성내동','길동','둔촌동','명일동','고덕동','상일동','강일동','암사동'],
+    find:[
+      '강동구는 고덕비즈밸리와 강일 첨단업무단지에 기업과 지식산업센터가 빠르게 들어서고 있고, 천호역·강동역 일대 상권과 명일동·고덕동 학원가, 둔촌동 대단지 아파트까지 유동 인구가 꾸준한 지역입니다. 새로 생긴 건물과 상가가 많아 매점이나 편의점 없이 비어 있는 공간에 무인 자판기 한 대가 그 역할을 대신하기 좋습니다.',
+      '다만 신축 오피스와 대단지 아파트는 관리 규정이 꼼꼼해 반입 시간, 화물용 엘리베이터, 전기 사용 조건을 먼저 확인해야 설치 당일이 수월합니다. 설치할 자리 사진과 출입문·엘리베이터 폭을 보내 주시면 들어갈 수 있는 기종과 견적을 먼저 안내해 드립니다.'
+    ],
+    types:[
+      ['#/chill','냉장 자판기','음료·유제품·간편식을 0~10℃로 판매합니다. 레버 하나로 온장 전환이 되어 겨울에는 따뜻한 캔커피도 팔 수 있습니다. 23.8인치 터치스크린에 광고와 공지를 띄울 수 있습니다.'],
+      ['#/frozen','냉동 블록형 쇼케이스','아이스크림과 냉동식품을 -18℃로 보관해 판매합니다. 가로 670mm로 폭이 좁아 학원 복도나 헬스장 입구처럼 공간이 빠듯한 자리에도 들어갑니다.']
+    ],
+    places:[
+      ['고덕비즈밸리·강일 오피스','신축 업무단지라 주변 편의시설이 아직 부족합니다. 점심 직후와 오후 휴식 시간에 커피·생수·간편식 구매가 몰립니다.'],
+      ['명일·고덕동 학원가','쉬는 시간 10분에 학생이 한꺼번에 찾습니다. 인기 상품을 찾기 쉽게 배치하고 가격대를 맞춰 구성합니다.'],
+      ['천호·길동 병원·클리닉','환자와 보호자, 직원까지 고르게 찾습니다. 매점이 없는 의료 건물에서 음료 판매를 대신합니다.'],
+      ['헬스장·필라테스','운동 전후 생수·이온음료·단백질 음료 수요가 꾸준합니다. 무인 헬스장도 카드 결제로 판매가 이어집니다.'],
+      ['둔촌·고덕 아파트 커뮤니티','대단지 커뮤니티 센터와 독서실, 피트니스 옆에 두면 입주민이 늦은 시간까지 편하게 이용합니다.'],
+      ['천호역·강동역 상가','유동 인구가 많은 역세권 상가 로비나 무인매장에 두면 영업시간과 관계없이 24시간 판매가 이어집니다.']
+    ],
+    faq:[
+      ['강동구 무인 자판기 설치 비용은 얼마인가요?','기종(냉장·냉동), 대수, 구매·렌탈·위탁 운영 중 어떤 방식을 고르시는지에 따라 달라집니다. 설치 자리 사진을 보내 주시면 조건에 맞춰 정확한 견적을 안내해 드립니다.'],
+      ['강동구 어느 동이든 설치가 되나요?','네. 천호동, 성내동, 길동, 둔촌동, 명일동, 고덕동, 상일동, 강일동, 암사동 등 강동구 전 지역에 직접 방문해 설치합니다.'],
+      ['설치까지 얼마나 걸리나요?','상담 후 기종이 확정되면 보통 1~2주 안에 설치합니다. 건물 반입 일정이나 재고 상황에 따라 조금 달라질 수 있습니다.'],
+      ['좁은 공간에도 설치할 수 있나요?','냉동 블록형 쇼케이스는 가로 670mm로 폭이 좁아 복도나 입구처럼 공간이 빠듯한 곳에도 설치할 수 있습니다. 출입문과 엘리베이터 폭을 미리 알려 주시면 반입 가능 여부를 확인해 드립니다.'],
+      ['결제는 어떻게 하나요?','신용·체크카드와 간편결제를 지원합니다. 현금 없이도 터치스크린에서 상품을 고르고 바로 결제할 수 있습니다.'],
+      ['설치 후 관리는 어떻게 하나요?','원격으로 재고와 매출을 확인할 수 있고, 고장이나 문의가 생기면 A/S를 지원합니다. 위탁 운영을 선택하시면 상품 보충과 관리까지 맡아 드립니다.']
+    ]
   }
 };
 function guPage(gu){
@@ -3070,11 +3113,11 @@ function guPage(gu){
     +'<div class="gn-hero"><div><span class="gn-pin">📍 서울 '+esc(gu)+'</span>'
     +'<h2>'+esc(gu)+' <em>무인 자판기</em><br>설치 전문</h2><p>'+esc(G.lead)+'</p>'
     +'<div class="gn-btns"><a class="btn btn-dark" href="'+tel+'">무료 상담 신청하기 →</a><a class="btn btn-line" href="'+tel+'">📞 010-3206-1175</a></div>'
-    +'<ul class="gn-checks"><li>강남구 전 지역 설치</li><li>원격 재고·매출 관리</li><li>설치 후 A/S 지원</li></ul></div>'
+    +'<ul class="gn-checks"><li>'+esc(gu)+' 전 지역 설치</li><li>원격 재고·매출 관리</li><li>설치 후 A/S 지원</li></ul></div>'
     +'<figure class="gn-hero-ph"><img src="'+G.hero+'" alt="'+esc(gu)+' 무인 자판기 설치 - LK 냉장 자판기" width="640" height="640"></figure></div>'
     +'<div class="gn-sec">'+head('INSTALL GALLERY','무인 자판기 설치 현장','오피스, 학원, 병원 등 실제로 운영 중인 LK 무인 자판기 모습입니다.')
     +'<div class="gn-gal"><button type="button" class="gn-arrow prev" data-gn="-1" aria-label="이전 사진">‹</button><div class="gn-track" id="gnTrack">'
-    +G.gallery.map(function(x){return '<figure><img src="'+x[0]+'" alt="'+esc(gu)+' '+esc(x[1])+'" width="640" height="640" loading="lazy"><figcaption>'+esc(x[1])+'</figcaption></figure>';}).join('')
+    +G.gallery.map(function(x){return '<figure'+(x[2]?' class="'+x[2]+'"':'')+'><img src="'+x[0]+'" alt="'+esc(gu)+' '+esc(x[1])+'" width="640" height="640" loading="lazy"><figcaption>'+esc(x[1])+'</figcaption></figure>';}).join('')
     +'</div><button type="button" class="gn-arrow next" data-gn="1" aria-label="다음 사진">›</button></div></div>'
     +'<div class="gn-sec gn-kw"><h3>서울 '+esc(gu)+' 무인 자판기 설치 키워드</h3><p>아래 지역·장소 모두 상담 후 설치해 드립니다.</p>'
     +G.keywords.map(function(g){return '<div class="gn-kw-g"><h4>'+esc(g[0])+'</h4>'+chips(g[2],g[1]?'main':'')+'</div>';}).join('')+'</div>'
